@@ -1,0 +1,13 @@
+{
+  "name": "review-chain",
+  "version": "1.0.0",
+  "description": "Project for hackaton",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node dist/index.js",
+    "test": "npm test",
+    "build": "tsc"
+  },
+  "author": "AutoPeople Inc.",
+  "license": "MIT"
+}
