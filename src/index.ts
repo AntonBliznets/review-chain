@@ -1,9 +1,11 @@
 import {Application} from "./application";
+import {container} from "./inversify/container";
+import {Types} from "./inversify/types";
 
 const PORT = 3000;
 
-const application = new Application();
+container.get(Types.AuthorizationHttpEntry);
 
-
-application.run(PORT)
-    .then(() => console.log(`Run at port ${PORT}`));
+Application.server.listen(PORT, function () {
+  console.log(`Run at port ${PORT}`);
+});

@@ -1,17 +1,12 @@
-import express, {Express} from "express";
+import express from "express";
+import parser from "body-parser";
 
 export class Application {
-    private readonly server: Express;
+    public static readonly _server = express();
 
-    constructor() {
-        this.server = express();
-    }
+    public static get server() {
+        Application._server.use(parser.json());
 
-    async run(port: number): Promise<void> {
-        return new Promise((resolve: () => void) => {
-            this.server.listen(port, function () {
-                resolve();
-            });
-        }) as Promise<void>;
+        return this._server;
     }
 }
